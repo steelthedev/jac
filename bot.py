@@ -57,7 +57,7 @@ def main():
 
     updater.start_webhook(listen="0.0.0.0",
                             port=int(PORT),
-                            url_path=bot_token,
+                            url_path="https://api.telegram.org/bot/",
                             webhook_url='https://oathubbot.herokuapp.com/ ' + bot_token)
 
     updater.idle()
