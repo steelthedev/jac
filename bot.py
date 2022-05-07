@@ -2,7 +2,7 @@
 import threading
 import telegram
 from telegram.ext import Updater, CommandHandler, MessageHandler , Filters
-from telegram import  InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import  InlineKeyboardButton, InlineKeyboardMarkup, ChatMemberUpdated
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 import logging
 import os
@@ -44,9 +44,14 @@ def Package(update,context):
     username = update["message"]["chat"]["username"]
     context.bot.send_message(chat_id=chat_id,text=f" Our packages are quite cheap and offered within three months: \n\n 1. Web Development at NGN20,000 \n\n 2. Graphics design at NGN15,000 \n\n 3. Cryto Trading at NGN30,000 \n\n \n\n \n\n \n\n To register and make payments visit our website: https://oathub-385f7.web.app/ ")
 
+def echo(update, context):
+
+    thread = threading.Thread(target= Welcome, args=[update, context])
+
+    thread.start()
 
 def main():
-
+    
     updater=Updater("5303668300:AAETnkAJLDBvK9KI3r6A9s50Gw_2U5omZUg" ,use_context=True)
 
     dp=updater.dispatcher
@@ -54,14 +59,18 @@ def main():
     dp.add_handler(CommandHandler("start",Start))
     dp.add_handler(CommandHandler("info",Info))
     dp.add_handler(CommandHandler("packages",Package))
+    
 
     updater.start_webhook(listen="0.0.0.0",
                             port=int(PORT),
-                            url_path="https://api.telegram.org/bot/",
+                            url_path=bot_token,
                             webhook_url='https://oathubbot.herokuapp.com/ ' + bot_token)
+    
+    #updater.start_polling()
 
     updater.idle()
 
 
 if __name__ == '__main__':
     main()
+    
