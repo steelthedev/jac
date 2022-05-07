@@ -64,8 +64,6 @@ def main():
     updater.start_webhook(listen="0.0.0.0",
                             port=int(PORT),
                             url_path=bot_token)
-    updater.bot.setWebhook('https://oatbott.herokuapp.com/' + bot_token)
-                            
     
     #updater.start_polling()
 
