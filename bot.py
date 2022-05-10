@@ -25,7 +25,7 @@ def Start(update,context):
     chat_id = update.effective_chat.id
     first_name = update["message"]["from_user"]["first_name"]
     username = update["message"]["from_user"]["username"]
-    markup= ReplyKeyboardMarkup([[KeyboardButton("/info"), KeyboardButton("/packages"),KeyboardButton("/contact")] ], resize_keyboard=True)
+    markup= ReplyKeyboardMarkup([[KeyboardButton("/info"), KeyboardButton("/packages"),KeyboardButton("/contact"),KeyboardButton("/instructors"),KeyboardButton("/FAQ")] ], resize_keyboard=True)
     context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {first_name}. Know more about us by clicking on the function buttons below", reply_markup = markup)
    
 
@@ -60,7 +60,7 @@ def FAQ(update,context):
     first_name = update["message"]["chat"]["first_name"]
     username = update["message"]["chat"]["username"]
 
-    messages = f" 1. How experienced are the insructors? \n Each instructor has over 3 years of professional experience. They are skilled with latest tech experience. \n\n Can I register for more than a course? \n Yes, you can register for more than a course. All you have to is pay online, we will be notified and you will be added to the necessary group(s) \n\n 3. I have no experience in tech, can I apply? \n Yes! You can. In fact, this bootcamp is meant for you. \n"
+    messages = f" 1. How experienced are the insructors? \n Each instructor has over 3 years of professional experience. They are skilled with the latest tech experience. \n\n Can I register for more than a course? \n Yes, you can register for more than a course. All you have to do is pay online, we will be notified and you will be added to the necessary group(s) \n\n 3. I have no experience in tech, can I apply? \n Yes! You can. In fact, this bootcamp is meant for you. \n"
     photo = "https://oathub-385f7.web.app/img/oat.1a04ffc9.jpg"
     context.bot.send_message(chat_id=chat_id, text= messages )
 
