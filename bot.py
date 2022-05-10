@@ -26,7 +26,7 @@ def Start(update,context):
     first_name = update["message"]["chat"]["first_name"]
     username = update["message"]["chat"]["username"]
     markup= ReplyKeyboardMarkup([[KeyboardButton("/info"), KeyboardButton("/packages"),] ], resize_keyboard=True)
-    context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {first_name}. Know more about us by clicking on the function buttons below", reply_markup = markup)
+    context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {username}. Know more about us by clicking on the function buttons below", reply_markup = markup)
    
 
 def Welcome(update,context):
