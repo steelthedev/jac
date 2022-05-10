@@ -89,6 +89,7 @@ def main():
     dp.add_handler(CommandHandler("contact",Contact))
     dp.add_handler(CommandHandler("menu",menu))
     dp.add_handler(CommandHandler("instructors",instructors))
+    dp.add_handler(CommandHandler("FAQ",FAQ))
    
 
     updater.start_webhook(listen="0.0.0.0",
