@@ -24,7 +24,7 @@ bot = telegram.Bot(token=bot_token)
 def Start(update,context):
     chat_id = update.effective_chat.id
     first_name = update["message"]["chat"]["first_name"]
-    username = update["message"]["chat"]["username"]
+    username = update["message"]["chat"].get('username',chat_id)
     markup= ReplyKeyboardMarkup([[KeyboardButton("/info"), KeyboardButton("/packages"),] ], resize_keyboard=True)
     context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {username}. Know more about us by clicking on the function buttons below", reply_markup = markup)
    
