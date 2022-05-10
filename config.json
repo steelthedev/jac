@@ -1,0 +1,7 @@
+{
+    "messages": {
+        "start": "`Hi {},` Welcome to Developers Job Hub Bot! 🤖\n\nI provide personalised developer job listings based on your programming stack straight to your DM with ease after scraping and exploring the web 😊🚀\n\nAll jobs are gotten from\n• [We Work Remotely](weworkremotely.com)\n• [RemoteOK](remoteok.io)\n• [Employ Remotely](employremotely.com)\n• [Remotive](remotive.io)\n• [Stack Overflow](stackoverflow.com)\n• [RemoteCo](remoteco.com)\n• [Python Org](python.org)\n• [Hackerrank](hackerrank.com)\n\nMade with ❤️ in 🇳🇬",
+        "menu": "What do you wanna do today 🤗\n\n/info 👀\n/info ➕\n/packages \n/contact 🥺\n/donate ⚙️",
+      
+      }
+}

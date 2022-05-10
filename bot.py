@@ -6,7 +6,7 @@ from telegram import  InlineKeyboardButton, InlineKeyboardMarkup, ChatMemberUpda
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 import logging
 import os
-
+import json 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
 
@@ -19,7 +19,7 @@ bot_token = "5303668300:AAETnkAJLDBvK9KI3r6A9s50Gw_2U5omZUg"
 
 bot = telegram.Bot(token=bot_token)
 
-
+config = json.load(open("config.json"))
 
 def Start(update,context):
     chat_id = update.effective_chat.id
