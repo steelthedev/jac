@@ -42,7 +42,7 @@ def Package(update,context):
     chat_id = update.effective_chat.id
     first_name = update["message"]["chat"]["first_name"]
     username = update["message"]["chat"]["username"]
-    context.bot.send_message(chat_id=chat_id,text=f" Our packages are quite affordable, and offered within 8 weeks: \n\n 1. Graphic Design at NGN15,000 \n\n 2. Web Development at NGN20,000 \n\n 3. Cryto Trading at NGN30,000 \n\n \n\n \n\n \n\n To register and make payments visit our website: https://oathub-385f7.web.app/ ")
+    context.bot.send_message(chat_id=chat_id,text=f" Our packages are quite affordable, and offered within 8 weeks: \n\n 1. Graphic Design at NGN15,000 \n\n 2. Web Development at NGN20,000 \n\n 3. Cryto Trading at NGN30,000 \n\n \n\n \n\n \n\n To register and make payments visit our website: https://bit.ly/oathub-bootcamp")
 
 def Contact(update,context):
     chat_id = update.effective_chat.id
