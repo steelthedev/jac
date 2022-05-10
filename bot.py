@@ -29,6 +29,17 @@ def Start(update,context):
     context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {first_name}. Know more about us by clicking on the function buttons below", reply_markup = markup)
    
 
+def Welcome(update,context):
+    
+    chat_id = update["message"]["new_chat_member"]
+    first_name = update["messag"]["new_chat_member"].get('username',chat_id)
+    text = update["message"]["text"]
+    if text ==  "/start":
+        if chat_id:
+            context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {first_name}. Know more about us by clicking on the function buttons below")
+        else:
+            context.bot.send_message(chat_id=chat_id,text = f" {first_name}. Know more about us by clicking on the function buttons below")
+
 def Info(update,context):
     chat_id = update.effective_chat.id
     first_name = update["message"]["chat"]["first_name"]
@@ -60,6 +71,9 @@ def main():
     dp.add_handler(CommandHandler("info",Info))
     dp.add_handler(CommandHandler("packages",Package))
     
+    echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
+
+    dp.add_handler(echo_handler)
 
     updater.start_webhook(listen="0.0.0.0",
                             port=int(PORT),
