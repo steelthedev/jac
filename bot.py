@@ -23,29 +23,18 @@ bot = telegram.Bot(token=bot_token)
 
 def Start(update,context):
     chat_id = update.effective_chat.id
-    first_name = update["message"]["chat"]["first_name"]
+    first_name = update["message"]["from_user"]["first_name"]
     username = update["message"]["from_user"]["username"]
     markup= ReplyKeyboardMarkup([[KeyboardButton("/info"), KeyboardButton("/packages"),] ], resize_keyboard=True)
     context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {username}. Know more about us by clicking on the function buttons below", reply_markup = markup)
    
-
-def Welcome(update,context):
-    
-    chat_id = update["message"]["new_chat_member"]
-    first_name = update["messag"]["new_chat_member"].get('username',chat_id)
-    text = update["message"]["text"]
-    if text ==  "/start":
-        if chat_id:
-            context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {first_name}. Know more about us by clicking on the function buttons below")
-        else:
-            context.bot.send_message(chat_id=chat_id,text = f" {first_name}. Know more about us by clicking on the function buttons below")
 
 def Info(update,context):
     chat_id = update.effective_chat.id
     first_name = update["message"]["chat"]["first_name"]
     username = update["message"]["chat"]["username"]
 
-    messages = f"We are a group of tech brothers ready to invest knowledge in the lives of many. We are offering courses in the field of web development, graphics design and crypto"
+    messages = f"oathub is a growing media startup. We are here to improve the tech life of individuals. "
     photo = "https://oathub-385f7.web.app/img/oat.1a04ffc9.jpg"
     context.bot.send_photo(chat_id=chat_id, caption=messages , photo=photo)
 
@@ -53,13 +42,10 @@ def Package(update,context):
     chat_id = update.effective_chat.id
     first_name = update["message"]["chat"]["first_name"]
     username = update["message"]["chat"]["username"]
-    context.bot.send_message(chat_id=chat_id,text=f" Our packages are quite cheap and offered within three months: \n\n 1. Web Development at NGN20,000 \n\n 2. Graphics design at NGN15,000 \n\n 3. Cryto Trading at NGN30,000 \n\n \n\n \n\n \n\n To register and make payments visit our website: https://oathub-385f7.web.app/ ")
+    context.bot.send_message(chat_id=chat_id,text=f" Our packages are quite affordable, and offered within 8 weeks: \n\n 1. Graphic Design at NGN15,000 \n\n 2. Web Development at NGN20,000 \n\n 3. Cryto Trading at NGN30,000 \n\n \n\n \n\n \n\n To register and make payments visit our website: https://oathub-385f7.web.app/ ")
 
-def echo(update, context):
-
-    thread = threading.Thread(target= Welcome, args=[update, context])
-
-    thread.start()
+def Contact(update,context):
+    context.bot.send_message(text="We can be contacted on the following .......")
 
 def main():
     
@@ -70,10 +56,8 @@ def main():
     dp.add_handler(CommandHandler("start",Start))
     dp.add_handler(CommandHandler("info",Info))
     dp.add_handler(CommandHandler("packages",Package))
-    
-    echo_handler = MessageHandler(Filters.text & (~Filters.command), echo)
-
-    dp.add_handler(echo_handler)
+    dp.add_handler(CommandHandler("contact",Contact))
+   
 
     updater.start_webhook(listen="0.0.0.0",
                             port=int(PORT),
