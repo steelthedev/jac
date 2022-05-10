@@ -29,6 +29,12 @@ def Start(update,context):
     context.bot.send_message(chat_id=chat_id,text = f"Welcome to oathub bootcamp, {username}. Know more about us by clicking on the function buttons below", reply_markup = markup)
    
 
+
+def menu(update, context):
+    chat_id = update.effective_chat.id
+    context.bot.send_message(
+        chat_id=chat_id, text=config["messages"]["menu"])
+
 def Info(update,context):
     chat_id = update.effective_chat.id
     first_name = update["message"]["chat"]["first_name"]
@@ -58,6 +64,7 @@ def main():
     dp.add_handler(CommandHandler("info",Info))
     dp.add_handler(CommandHandler("packages",Package))
     dp.add_handler(CommandHandler("contact",Contact))
+    dp.add_handler(CommandHandler("menu",menu))
    
 
     updater.start_webhook(listen="0.0.0.0",
