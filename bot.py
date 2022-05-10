@@ -50,9 +50,9 @@ def instructors(update,context):
     first_name = update["message"]["chat"]["first_name"]
     username = update["message"]["chat"]["username"]
 
-    messages = f"Contact the instructors: \n\n Bishop Olugbenga (Graphic Designer) \n 08109479682 \n\n Iyanuoluwa Akinwumi (Web Developer) \n 07065487342 \n\n Opeyemi Akinwumi (Technical Analyst) \n 08131567097 ) "
+    messages = f"Contact the instructors: \n\n Bishop Olugbenga <b> (Graphic Designer)</b> \n 08109479682 \n\n Iyanuoluwa Akinwumi <b> (Web Developer) </b> \n 07065487342 \n\n Opeyemi Akinwumi <b> (Technical Analyst) </b> \n 08131567097 "
     photo = "https://oathub-385f7.web.app/img/oat.1a04ffc9.jpg"
-    context.bot.send_message(chat_id=chat_id, text= messages )
+    context.bot.send_message(chat_id=chat_id, text= messages,parse_mode=telegram.ParseMode.HTML )
 
 
 def FAQ(update,context):
