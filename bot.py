@@ -60,9 +60,9 @@ def FAQ(update,context):
     first_name = update["message"]["chat"]["first_name"]
     username = update["message"]["chat"]["username"]
 
-    messages = f" 1. How experienced are the insructors? \n \033 + Each instructor has over 3 years of professional experience. \n\n 2. Can I register for more than a course? \n Yes, you can register for more than a course. All you have to do is pay online, we will be notified and you will be added to the necessary group(s) \n\n 3. I have no experience in tech, can I apply? \n Yes! You can. In fact, this bootcamp is meant for you. \n"
+    messages = f" 1. How experienced are the insructors? \n <b> Each instructor has over 3 years of professional experience. </b> \n\n 2. Can I register for more than a course? \n Yes, you can register for more than a course. All you have to do is pay online, we will be notified and you will be added to the necessary group(s) \n\n 3. I have no experience in tech, can I apply? \n Yes! You can. In fact, this bootcamp is meant for you. \n"
     photo = "https://oathub-385f7.web.app/img/oat.1a04ffc9.jpg"
-    context.bot.send_message(chat_id=chat_id, text= messages )
+    context.bot.send_message(chat_id=chat_id, text= messages ,parse_mode=telegram.ParseMode.HTML)
 
 
 
