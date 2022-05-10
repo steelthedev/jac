@@ -46,7 +46,7 @@ def Package(update,context):
 
 def Contact(update,context):
     chat_id = update.effective_chat.id
-    context.bot.send_message(chat_id=chat_id,text="We can be contacted at oathub@outlook.com")
+    context.bot.send_message(chat_id=chat_id,text="Contact info: \n\n Mail: oathub@outlook.com")
 
 def main():
     
